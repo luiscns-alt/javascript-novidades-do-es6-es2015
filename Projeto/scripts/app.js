@@ -1,43 +1,20 @@
-var RandomNumbers = {
-    [Symbol.iterator]() {
-        return this;
-    },
-    next() {
-        var number = Math.floor(Math.random() * 5),
-            isEven = number % 2 === 0;
-
-        return { value: number, done: !isEven };
-    },
-};
-
-var numbers = RandomNumbers[Symbol.iterator]();
-console.log([...numbers]);
-
-for (var number of numbers) {
-    console.log(number);
+function* myCounter() {
+    var i = 0;
+    while (true) {
+        yield i++;
+    }
 }
 
-var Fibonacci = {
-    [Symbol.iterator]() {
-        var n1 = 1,
-            n2 = 1;
+var counter = myCounter();
+var counterValue = counter.next();
 
-        return {
-            [Symbol.iterator]() {
-                return this;
-            },
-            next() {
-                var current = n2;
-                n2 = n1;
-                n1 = n1 + current;
-                return { value: current, done: false };
-            },
-        };
-    },
-};
+console.log(counterValue);
 
-var fib = Fibonacci[Symbol.iterator]();
-console.log(fib.next());
-console.log(fib.next());
-console.log(fib.next());
-console.log(fib.next());
+function* myGenerator() {
+    yield* [1, 2, 3, 4, 5];
+}
+
+var myGen = myGenerator();
+console.log(myGen.next());
+console.log(myGen.next());
+console.log(myGen.next());
