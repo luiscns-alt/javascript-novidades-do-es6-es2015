@@ -1,18 +1,23 @@
+var str = "TreinaWeb";
+var myIterator = str[Symbol.iterator]();
+myIterator.next();
+
 var RandomNumbers = {
     [Symbol.iterator]() {
         return this;
     },
+
     next() {
         var number = Math.floor(Math.random() * 5),
             isEven = number % 2 === 0;
-
         return { value: number, done: !isEven };
     },
 };
 
 var numbers = RandomNumbers[Symbol.iterator]();
-console.log([...numbers]);
+[...numbers];
 
+var numbers = RandomNumbers[Symbol.iterator]();
 for (var number of numbers) {
     console.log(number);
 }
@@ -26,6 +31,7 @@ var Fibonacci = {
             [Symbol.iterator]() {
                 return this;
             },
+
             next() {
                 var current = n2;
                 n2 = n1;
@@ -37,7 +43,4 @@ var Fibonacci = {
 };
 
 var fib = Fibonacci[Symbol.iterator]();
-console.log(fib.next());
-console.log(fib.next());
-console.log(fib.next());
-console.log(fib.next());
+fib.next();
