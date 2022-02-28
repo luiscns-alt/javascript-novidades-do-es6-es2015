@@ -1,11 +1,7 @@
-var a = Symbol.for("a"),
-    b = Symbol.for("a");
+var myList = [3, 4, 5];
 
-console.log(a === b);
-console.log(Symbol.keyFor(a));
+function myFunc(a, b, ...c) {
+    console.log(a, b, c);
+}
 
-var myObj = {};
-myObj[a] = 5;
-
-console.log(myObj[Symbol.for("a")]);
-console.log(JSON.stringify(myObj));
+myFunc(1, 2, 3, 4, 5, 6, 7, 8, 9);
