@@ -1,6 +1,11 @@
-let a = 2;
-{
-    let a = 3;
-    console.log(a);
-}
-console.log(a);
+var myObj = {
+    a: 1,
+    b: 2,
+    c: 3,
+};
+
+var a = myObj.a,
+    b = myObj.b,
+    c = myObj.c;
+
+var { a, b, c, outraVariavel = 5 } = myObj;
