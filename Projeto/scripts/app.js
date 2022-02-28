@@ -1,10 +1,27 @@
-class MyArray extends Array {
-    doubleValues() {
-        return this.map((item) => item * 2);
-    }
-}
+var myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(500);
+    }, 2000);
+});
 
-var myList = new MyArray(1, 2, 3, 4);
-myList.push(5);
+myPromise
+    .then((value) => {
+        console.log(`My Value: ${value}`);
+        return 900;
+    })
+    .then((value) => {
+        console.log(`My Value: ${value}`);
+        return 100;
+    });
 
-console.log(myList.doubleValues());
+var p1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(500);
+    }, 2000);
+});
+
+var p2 = Promise.resolve(77);
+
+Promise.all([p1, p2]).then((value) => {
+    console.log(value);
+});
