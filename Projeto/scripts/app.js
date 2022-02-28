@@ -1,9 +1,6 @@
-var myObj = new WeakMap();
+var a = { myValue: 1 },
+    b = { myValue: 2 };
 
-var a = { value: 1 },
-    b = { value: 2 };
+var mySet = new Set([a, b]);
 
-myObj.set(a, 5);
-myObj.set(b, 10);
-
-console.log(myObj.get(a), myObj.get(b));
+mySet.has(a);
